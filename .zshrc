@@ -18,17 +18,15 @@ PS1='%F{blue}%n%f@%F{magenta}%m%f %F{red}%B%~%b%f %% '
 #prompt redhat
 
 alias ls='ls --color=auto'
-alias hgst='sudo mount /dev/sdc2 /mnt/hgst/'
 alias grep='grep --color=auto'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-alias ip='ip --color=always'
+alias ip='ip  --color=always'
 alias lockx='xscreensaver-command -lock'
 alias ..='cd ..'
-alias v='vim'
+alias v='nvim'
 alias awk='gawk'
 alias ll='ls -lh'
 
-export PATH=/home/jojo/.emacs.d/bin:$PATH
 export HISTCONTROL=ignoredups
 export EDITOR=nvim
 
