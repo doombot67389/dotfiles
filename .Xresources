@@ -1,44 +1,44 @@
 
 !!Color Scheme
 ! special
-*.foreground: #93a1a1
-*.background: #141c21
-*.cursorColor: #afbfbf
+*.foreground:   #dcd7ba
+*.background:   #1f1f28
+*.cursorColor:  #dcd7ba
 
 ! black
-*.color0: #263640
-*.color8: #4a697d
+*.color0:       #090618
+*.color8:       #727169
 
 ! red
-*.color1: #d12f2c
-*.color9: #fa3935
+*.color1:       #c34043
+*.color9:       #e82424
 
 ! green
-*.color2: #819400
-*.color10: #a4bd00
+*.color2:       #76946a
+*.color10:      #98bb6c
 
 ! yellow
-*.color3: #2587cc
-*.color11: #d9a400
+*.color3:       #c0a36e
+*.color11:      #e6c384
 
 ! blue
-*.color4: #2587cc
-*.color12: #2ca2f5
+*.color4:       #7e9cd8
+*.color12:      #7fb4ca
 
 ! magenta
-*.color5: #696ebf
-*.color13: #8086e8
+*.color5:       #957fb8
+*.color13:      #938aa9
 
 ! cyan
-*.color6: #289c93
-*.color14: #33c5ba
+*.color6:       #6a9589
+*.color14:      #7aa89f
 
 ! white
-*.color7: #bfbaac
-*.color15: #fdf6e3
+*.color7:       #c8c093
+*.color15:      #dcd7ba
 
 !! Perl Extensions
-URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select,selection-to-clipboard
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select,selection-to-clipboard,osc-xterm-clipboard
 URxvt.copyCommand: xclip -i -selection clipboard
 URxvt.pasteCommand: xclip -o -selection clipboard
 URxvt.keysym.M-c: perl:clipboard:copy
