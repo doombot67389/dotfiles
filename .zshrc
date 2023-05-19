@@ -4,7 +4,6 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt autocd correctall nomatch
 unsetopt beep extendedglob notify
-bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/jojo/.zshrc'
@@ -14,8 +13,6 @@ autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
 
 PS1='%F{blue}%n%f@%F{magenta}%m%f %F{red}%B%~%b%f %% '
-#prompt_themes+=(redhat)
-#prompt redhat
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
@@ -25,10 +22,14 @@ alias lockx='xscreensaver-command -lock'
 alias ..='cd ..'
 alias v='nvim'
 alias awk='gawk'
-alias ll='ls -lh'
+alias ll='ls -lah'
 
 export HISTCONTROL=ignoredups
 export EDITOR=nvim
+bindkey -v
+
+export PATH=$PATH:/.emacs.d/bin/
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
