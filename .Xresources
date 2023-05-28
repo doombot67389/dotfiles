@@ -1,41 +1,33 @@
 
 !!Color Scheme
-! special
-*.foreground:   #dcd7ba
-*.background:   #1f1f28
-*.cursorColor:  #dcd7ba
-
-! black
-*.color0:       #090618
-*.color8:       #727169
-
-! red
-*.color1:       #c34043
-*.color9:       #e82424
-
-! green
-*.color2:       #76946a
-*.color10:      #98bb6c
-
-! yellow
-*.color3:       #c0a36e
-*.color11:      #e6c384
-
-! blue
-*.color4:       #7e9cd8
-*.color12:      #7fb4ca
-
-! magenta
-*.color5:       #957fb8
-*.color13:      #938aa9
-
-! cyan
-*.color6:       #6a9589
-*.color14:      #7aa89f
-
-! white
-*.color7:       #c8c093
-*.color15:      #dcd7ba
+! hard contrast: *background: #1d2021
+*background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
 
 !! Perl Extensions
 URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select,selection-to-clipboard,osc-xterm-clipboard
