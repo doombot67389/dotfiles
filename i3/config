@@ -65,7 +65,6 @@ hide_edge_borders smart_no_gaps
 gaps inner 8
 gaps outer 8
 
-assign [class="firefox"] 7
 assign [class="emacs"] 2
 workspace 1 output DisplayPort-0 
 workspace 2 output DisplayPort-0 

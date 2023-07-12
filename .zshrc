@@ -24,9 +24,12 @@ alias v='nvim'
 alias awk='gawk'
 alias ll='ls -lah'
 
+alias e='emacsclient --tty'
+
 export HISTCONTROL=ignoredups
-export EDITOR=nvim
-bindkey -v
+export ALTERNATE_EDITOR=''
+export EDITOR='emacsclient -t'
+export VISUAL='emacsclient -t'
 
 export PATH=$PATH:/.emacs.d/bin/
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
