@@ -13,7 +13,9 @@
 (menu-bar-mode -1)
 
 ;;Auto refresh buffers
-(global-auto-revert-mode 1)
+(setq auto-revert-interval 1)
+(setq auto-revert-check-vc-info t)
+(global-auto-revert-mode) 
 
 ;;Visible bell
 (setq visible-bell t)
@@ -36,14 +38,14 @@
 
 ;;Hooks
 (add-hook 'text-mode-hook 'visual-line-mode)
-(add-hook 'text-mode-hook 'display-line-numbers-mode)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(setq-default display-line-numbers-width 1)
 
 ;;Recentf
 (require 'recentf)
 (global-set-key (kbd "C-x C-r") 'ido-recentf-open)
 
 (recentf-mode t)
-
 (setq recentf-max-saved-items 50)
 
 (defun ido-recentf-open ()

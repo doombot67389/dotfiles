@@ -28,19 +28,6 @@
 (require 'use-package)
   (setq use-package-always-ensure t)
 
-(use-package org-roam
-  :ensure t
-  :custom
-  (org-roam-directory (file-truename "~/docs/org/"))
-  (org-roam-db-autosync-mode)
-  :bind (("C-c n l" . org-roam-buffer-toggle)
-	 ("C-c n f" . org-roam-node-find)
-	 ("C-c n g" . org-roam-graph)
-	 ("C-c n i" . org-roam-node-insert)
-	 ("C-c n c" . org-roam-capture)
-	 ;;Dailies
-	 ("C-c n j" . org-roam-dailies-capture-today)))
-
 ;;MAGIT
 (use-package magit
   :ensure t
@@ -111,14 +98,25 @@
 
 ;;EMMS
 (use-package emms)
-(require 'emms-setup)
+;; Covers
+(setq emms-browser-covers #'emms-browser-cache-thumbnail-async)
+;; Filters
 (emms-all)
-(setq emms-player-list '(emms-player-mpv)
-      emms-source-file-default-directory "~/music"
-      emms-info-functions '(emms-info-native))
-(require 'emms-browser)
+(setq emms-playlist-buffer-name "*MUSIC*")
+(setq emms-info-asynchronously nil)
+(require 'emms-history)
+(emms-history-load)
+(require 'emms-info-mp3info)
+(add-to-list 'emms-info-functions 'emms-info-mp3info 'emms-info-metaflac)
+
+;;Defaults
+(setq-default
+ emms-source-file-default-directory "~/music/"
+ emms-playlist-default-major-mode 'emms-playlist-mode
+ emms-player-list '(emms-player-mplayer))
 
 ;;doom-modeline
-(use-package doom-modeline)
+(use-package doom-modeline
 :ensure t
-:init (doom-modeline-mode 1)
+:hook (after-init . doom-modeline-mode))
+

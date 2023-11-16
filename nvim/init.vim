@@ -15,10 +15,20 @@ Plug 'rebelot/kanagawa.nvim'
 
 "Options
 syntax on
-set number
+set relativenumber
 set autowrite
 set filetype
 set autoread
 filetype plugin on
 set nocompatible
 set clipboard+=unnamedplus
+set path+=**
+set wildmenu
+
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
