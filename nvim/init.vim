@@ -3,27 +3,24 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 Plug 'EdenEast/nightfox.nvim'
 Plug 'rebelot/kanagawa.nvim'
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-"Plug 'nvim-lua/plenary.nvim'
-"Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-
-"Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
-"Plug 'nvim-tree/nvim-tree.lua'
-"Plug 'vimwiki/vimwiki'
-"Plug 'phaazon/hop.nvim'
+Plug 'lervag/vimtex'
 
 "Options
 syntax on
 set relativenumber
 set autowrite
-set filetype
+filetype on
 set autoread
 filetype plugin on
+filetype indent on
 set nocompatible
 set clipboard+=unnamedplus
 set path+=**
 set wildmenu
+
+" Zathura
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_method = 'latexrun'
 
 inoremap " ""<left>
 inoremap ' ''<left>

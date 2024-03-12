@@ -1,4 +1,3 @@
-#######################################################
 #           _ _____                    __ _       
 #          (_)___ /    ___ ___  _ __  / _(_) __ _ 
 #          | | |_ \   / __/ _ \| '_ \| |_| |/ _` |
@@ -17,14 +16,14 @@ font pango:hack 11
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec autorandr -l desktop
-exec_always setxkbmap -option ctrl:swapcaps
+exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 exec firefox
+exec emacs
 exec_always feh --bg-fill --randomize ~/pics/.wallpaper/*
 exec xscreensaver &
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 #exec_always compton &
-# Monitor config
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -40,17 +39,17 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# move tiling windows via drag & drop by left-clicking into the title bar,
-# or left-clicking anywhere into the window while holding the floating modifier.
-
-mouse_warping none
+mouse_warping output
 focus_follows_mouse yes
 workspace_auto_back_and_forth yes
 show_marks yes
 default_border normal
 default_floating_border pixel 3
-#bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
-#bindsym $mod+g exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
+
+# read 1 character and mark the current window with this character
+bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
+# read 1 character and go to the window with the character
+bindsym $mod+n exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #A64CA6 #A64CA6 #ffffff #A64CA6   #A64CA6
@@ -61,7 +60,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 #Gaps
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 4
 hide_edge_borders smart_no_gaps
 gaps inner 8
 gaps outer 8
@@ -69,10 +68,17 @@ gaps outer 8
 # Assignments
 assign [class="firefox"] 1
 assign [class="emacs"] 2
+#assign [class="virt-manager"] 3
+assign [class="vlc"] 3
 
 # Workspaces
 workspace 1 output DisplayPort-1 
+workspace 2 output DisplayPort-1 
+workspace 3 output DisplayPort-1 
+workspace 4 output DisplayPort-1 
+workspace 5 output DisplayPort-1 
 workspace 8 output DisplayPort-0
+workspace 9 output DisplayPort-0 
 
 # lock system
 bindsym $mod+shift+x exec xscreensaver-command -lock
@@ -211,6 +217,9 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        mode hide
+        hidden_state hide
+        modifier $mod
 	position top
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
 }

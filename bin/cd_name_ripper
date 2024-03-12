@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#set -x
+
+CURRENT_DIRECTORY=$(pwd)
+#echo $CURRENT_DIRECTORY
+
+for inf_files in "$CURRENT_DIRECTORY"/*.inf; do
+  #echo $inf_files
+  if [[ -e $inf_files ]]; then
+     performer=$(grep Performer "$inf_files" | cut -d= -f2 | tr -d \' | tr -d '[:space:]')
+     #echo $performer
+
+     albumtitle=$(grep Albumtitle "$inf_files" | cut -d= -f2 | tr -d \' | tr -d '[:space:]')
+     #echo $albumtitle
+
+     tracktitle=$(grep Tracktitle "$inf_files" | cut -d= -f2 | tr -d \' | tr -d '[:space:]')
+     #echo $tracktitle
+
+     tracknumber=$(grep Tracknumber "$inf_files" | cut -d= -f2 | tr -d \' | tr -d '[:space:]')
+     #echo $tracknumber
+  fi
+  wav_file="${inf_files%.inf}.wav"
+  #echo $wav_file
+  new_name="$CURRENT_DIRECTORY/${albumtitle} - ${tracktitle} - ${tracknumber}.wav"
+  #new_name="${tracktitle}.wav"
+  if [[ -e $wav_file ]]; then
+      mv "$wav_file" "$new_name"
+  fi
+done
